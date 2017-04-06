@@ -1,0 +1,12 @@
+languages:
+   PHP: true
+engines:
+  phpmd:
+    enabled: true
+    checks:
+      Controversial/CamelCaseMethodName:
+        enabled: false
+exclude_paths:
+- "vendor/*"
+- "node_modules/*"
+- "tests/*"
