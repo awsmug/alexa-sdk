@@ -49,8 +49,10 @@ temp/
 .Trashes
 
 .svn
+vendor
 
 ############
 ## Configuration
 ############
+
 alexa-config.php

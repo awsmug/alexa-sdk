@@ -91,8 +91,12 @@ abstract class Skill {
 	 *
 	 * @throws Exception
 	 */
-	public function input() {
-		$this->input = new Input_Stream( $this->receive() );
+	public function input( $input = false ) {
+		if( ! $input ) {
+			$this->input = new Input_Stream( $this->receive() );
+		} else {
+			$this->input = new Input_Stream( $input );
+		}
 
 		if( ! $this->input->session()->application()->id_equals( $this->application_id ) ) {
 			throw new Exception( 'Wrong Application ID' );

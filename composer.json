@@ -1,0 +1,11 @@
+{
+  "name": "awsmug/alexa-php-sdk",
+  "authors": [
+    {
+      "name": "Sven Wagener",
+      "email": "contact@awesome.ug",
+      "homepage": "http://www.awesome.ug",
+      "role": "Lead Developer"
+    }
+  ]
+}
