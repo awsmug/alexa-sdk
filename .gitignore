@@ -1,0 +1,9 @@
+############
+## System Files
+############
+.DS_Store
+
+############
+## Configuration
+############
+alexa-config.php
