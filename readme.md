@@ -1,5 +1,6 @@
 # Alexa PHP SDK
 
+[![Build Status](https://api.travis-ci.org/profile/awsmug.png?branch=master)](https://travis-ci.org/profile/awsmug)
 [![Code Climate](https://codeclimate.com/github/awsmug/alexa-sdk/badges/gpa.svg)](https://codeclimate.com/github/awsmug/alexa-sdk)
 
 This is a free PHP software development kit for Amazon Echo.
