@@ -3,6 +3,7 @@
 [![Build Status](https://api.travis-ci.org/profile/awsmug.png?branch=master)](https://travis-ci.org/profile/awsmug)
 [![Code Climate](https://codeclimate.com/github/awsmug/alexa-sdk/badges/gpa.svg)](https://codeclimate.com/github/awsmug/alexa-sdk)
 [![Test Coverage](https://codeclimate.com/github/awsmug/alexa-sdk/badges/coverage.svg)](https://codeclimate.com/github/awsmug/alexa-sdk/coverage)
+[![License](https://poser.pugx.org/awsmug/alexa-sdk/license)](https://packagist.org/packages/awsmug/alexa-sdk)
 
 This is a free PHP software development kit for Amazon Echo.
 
