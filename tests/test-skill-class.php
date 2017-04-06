@@ -3,6 +3,8 @@
  * Simple Skill Class for testing
  */
 
+use Alexa\Skill;
+
 class Test_Skill extends Skill {
 	public function __construct( $application_id ) {
 		parent::__construct( $application_id );
