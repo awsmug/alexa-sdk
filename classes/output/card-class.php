@@ -1,6 +1,7 @@
 <?php
 
-namespace Alexa;
+namespace Alexa\Output;
+use Alexa\Output_Object;
 
 /**
  * Class Output_Speech
@@ -9,7 +10,7 @@ namespace Alexa;
  *
  * @package Alexa
  */
-class Card{
+class Card implements Output_Object {
 	/**
 	 * Type of card
 	 *

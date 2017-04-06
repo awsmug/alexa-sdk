@@ -1,6 +1,7 @@
 <?php
 
 namespace Alexa;
+use Alexa\Input\Input_Stream;
 
 /**
  * Class Skill
@@ -86,12 +87,12 @@ abstract class Skill {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @return Input
+	 * @return Input_Stream
 	 *
 	 * @throws Exception
 	 */
 	public function input() {
-		$this->input = new Input( $this->receive() );
+		$this->input = new Input_Stream( $this->receive() );
 
 		if( ! $this->input->session()->application()->id_equals( $this->application_id ) ) {
 			throw new Exception( 'Wrong Application ID' );

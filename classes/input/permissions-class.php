@@ -1,6 +1,7 @@
 <?php
 
-namespace Alexa;
+namespace Alexa\Input;
+use Alexa\Raw_Object;
 
 /**
  * Class Permissuins

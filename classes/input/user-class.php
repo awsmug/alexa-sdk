@@ -1,6 +1,8 @@
 <?php
 
-namespace Alexa;
+namespace Alexa\Input;
+use Alexa\Id;
+use Alexa\Raw_Object;
 
 /**
  * Class User

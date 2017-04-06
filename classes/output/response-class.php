@@ -1,6 +1,7 @@
 <?php
 
-namespace Alexa;
+namespace Alexa\Output;
+use Alexa\Output_Object;
 
 /**
  * Class Response
@@ -9,7 +10,7 @@ namespace Alexa;
  *
  * @package Alexa
  */
-class Response {
+class Response implements Output_Object {
 	/**
 	 * Output Speech
 	 *
@@ -125,8 +126,3 @@ class Response {
 		return $object;
 	}
 }
-
-$var = new Response();
-$var->output_speech()->set_type('PlainText' );
-$var->output_speech()->set_text( 'Das ist mein Text' );
-$var->get();

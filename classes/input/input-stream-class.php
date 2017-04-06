@@ -1,15 +1,16 @@
 <?php
 
-namespace Alexa;
+namespace Alexa\Input;
+use Alexa\Raw_Object;
 
 /**
- * Class Response
+ * Class Input_Stream
  *
  * @since 1.0.0
  *
  * @package Alexa
  */
-class Input {
+class Input_Stream {
 	use Raw_Object;
 
 	/**

@@ -1,6 +1,7 @@
 <?php
 
-namespace Alexa;
+namespace Alexa\Output;
+use Alexa\Output_Object;
 
 /**
  * Class Reprompt
@@ -9,7 +10,7 @@ namespace Alexa;
  *
  * @package Alexa
  */
-class Reprompt{
+class Reprompt implements Output_Object {
 	/**
 	 * Output speech
 	 *
