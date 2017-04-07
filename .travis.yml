@@ -10,3 +10,9 @@ script:
 - composer install
 - phpunit --version
 - phpunit ./tests
+
+before_install:
+  - if [[ ${TRAVIS_PHP_VERSION:0:3} == "5.5" ]]; then composer require --dev --no-update phpunit/phpunit ~4; fi
+
+install:
+  - travis_retry composer install --no-interaction --ignore-platform-reqs
