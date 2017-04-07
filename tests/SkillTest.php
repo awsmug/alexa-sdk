@@ -7,7 +7,7 @@ ini_set('display_startup_errors', '1');
 require_once 'alexa-testcase.php';
 require_once 'alexa-test-skills-class.php';
 
-class SkillClassTest extends AlexaTestCase {
+class SkillClassTest extends AlexaCase {
 	/**
 	 * @var Test_Skill
 	 */
