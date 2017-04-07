@@ -5,7 +5,7 @@
 
 use Alexa\Skill;
 
-class Test_Skill extends Skill {
+class Alexa_Test_Skill extends Skill {
 	public function __construct( $application_id ) {
 		parent::__construct( $application_id );
 	}

@@ -1,11 +1,12 @@
 <?php
-
+/*
 ini_set('error_reporting', E_ALL ); // or error_reporting(E_ALL);
 ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
+*/
 
 require_once 'alexa-testcase.php';
-require_once 'test-skill-class.php';
+require_once 'alexa-test-skills-class.php';
 
 class SkillClassTest extends AlexaTestCase {
 	/**
@@ -16,16 +17,16 @@ class SkillClassTest extends AlexaTestCase {
 	private $input = array();
 
 	public function setUp() {
-		require dirname( dirname( __FILE__ ) ) . '/alexa-config.php';
+		parent::setUp();
 
-		$this->skill = new Test_Skill( $alexa_app_id );
+		$this->skill = new Alexa_Test_Skill( $this->app_id );
 
 		$this->input = array(
 			'LaunchRequest' => json_decode( '{
 			  "session": {
 			    "sessionId": "SessionId.d1f73a18-af8e-4d19-ada8-2dea0375ab54",
 			    "application": {
-			      "applicationId": "' . $alexa_app_id . '"
+			      "applicationId": "' . $this->app_id . '"
 			    },
 			    "attributes": {},
 			    "user": {
