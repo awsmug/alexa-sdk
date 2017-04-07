@@ -2,6 +2,7 @@
 
 // use PHPUnit\Framework\TestCase;
 
+require dirname( dirname( __FILE__ ) ) . '/vendor/autoload.php';
 require dirname( dirname( __FILE__ ) ) . '/src/alexa-sdk.php';
 
 class AlexaTestCase extends PHPUnit_Framework_TestCase  {
