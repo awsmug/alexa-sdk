@@ -9,7 +9,5 @@
     }
   ],
   "require-dev": {
-    "codeclimate/php-test-reporter": "dev-master",
-    "phpunit/phpunit": "^5.6"
   }
 }
