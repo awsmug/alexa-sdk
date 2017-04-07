@@ -7,7 +7,6 @@ php:
   - hhvm
 
 script:
-- composer install
 - phpunit --version
 - phpunit ./tests
 
