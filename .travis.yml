@@ -8,4 +8,5 @@ php:
 
 script:
 - composer install
+- composer update
 - phpunit ./tests
