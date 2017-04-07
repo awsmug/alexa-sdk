@@ -9,5 +9,4 @@ php:
   - hhvm
 
 script:
-- cd tests
-- phpunit SkillTest
+- phpunit ./tests
