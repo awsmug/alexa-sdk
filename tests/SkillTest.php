@@ -1,6 +1,6 @@
 <?php
 
-use PHPUnit\Framework\TestCase;
+//use PHPUnit\Framework\TestCase;
 
 ini_set('error_reporting', E_ALL ); // or error_reporting(E_ALL);
 ini_set('display_errors', '1');
@@ -10,7 +10,7 @@ ini_set('display_startup_errors', '1');
 require_once dirname( dirname( __FILE__ ) ) . '/src/alexa-sdk.php';
 require_once dirname( __FILE__ ) . '/alexa-test-skills-class.php';
 
-class SkillTest extends TestCase {
+class SkillTest extends PHPUnit_Framework_TestCase {
 	protected $app_id;
 	protected $user_id;
 
