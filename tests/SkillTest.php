@@ -1,13 +1,19 @@
 <?php
 
+use PHPUnit\Framework\TestCase;
+
 ini_set('error_reporting', E_ALL ); // or error_reporting(E_ALL);
 ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
 
-require_once 'alexa-case.php';
-require_once 'alexa-test-skills-class.php';
+require_once dirname( dirname( __FILE__ ) ) . '/vendor/autoload.php';
+require_once dirname( dirname( __FILE__ ) ) . '/src/alexa-sdk.php';
+require_once dirname( __FILE__ ) . '/alexa-test-skills-class.php';
 
-class SkillClassTest extends AlexaCase {
+class SkillClassTest extends TestCase {
+	protected $app_id;
+	protected $user_id;
+
 	/**
 	 * @var Test_Skill
 	 */
@@ -16,7 +22,8 @@ class SkillClassTest extends AlexaCase {
 	private $input = array();
 
 	public function setUp() {
-		parent::setUp();
+		$this->app_id = 'app1234567890';
+		$this->user_id = 'user1234567890';
 
 		$this->skill = new Alexa_Test_Skill( $this->app_id );
 
