@@ -1,10 +1,10 @@
 <?php
 
-use PHPUnit\Framework\TestCase;
+// use PHPUnit\Framework\TestCase;
 
 require dirname( dirname( __FILE__ ) ) . '/src/alexa-sdk.php';
 
-class AlexaTestCase extends TestCase  {
+class AlexaTestCase extends PHPUnit_Framework_TestCase  {
 	protected $app_id;
 	protected $user_id;
 
