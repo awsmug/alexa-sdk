@@ -7,7 +7,7 @@ ini_set('display_startup_errors', '1');
 require_once 'alexa-testcase.php';
 require_once 'test-skill-class.php';
 
-class SkillClassTest extends AlexaTestcase {
+class SkillClassTest extends AlexaTestCase {
 	/**
 	 * @var Test_Skill
 	 */
@@ -16,7 +16,7 @@ class SkillClassTest extends AlexaTestcase {
 	private $input = array();
 
 	public function setUp() {
-		require 'alexa-config.php';
+		require dirname( dirname( __FILE__ ) ) . '/alexa-config.php';
 
 		$this->skill = new Test_Skill( $alexa_app_id );
 

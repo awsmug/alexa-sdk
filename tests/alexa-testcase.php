@@ -1,8 +1,9 @@
 <?php
 
-require dirname( dirname( __FILE__ ) ) . '/alexa-sdk.php';
+use PHPUnit\Framework\TestCase;
 
-require_once 'alexa-config.php';
+require dirname( dirname( __FILE__ ) ) . '/src/alexa-sdk.php';
+require_once dirname( dirname (__FILE__) ) . '/alexa-config.php';
 
-class AlexaTestcase extends PHPUnit_Framework_Testcase  {
+class AlexaTestCase extends TestCase  {
 }
