@@ -1,6 +1,7 @@
 <?php
 
 namespace Alexa\Input;
+use Alexa\Exception;
 use Alexa\Raw_Object;
 
 /**
