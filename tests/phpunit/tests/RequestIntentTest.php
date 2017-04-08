@@ -2,7 +2,7 @@
 
 require_once dirname( dirname( __FILE__ ) ) . '/includes/bootstrap.php';
 
-class RequestTest extends Alexa_TestCase {
+class RequestIntentTest extends Alexa_TestCase {
 	/**
 	 * @var Alexa\Input\Request
 	 */
