@@ -21,7 +21,7 @@ class RequestLaunchTest extends Alexa_TestCase {
 			$this->expectException( Exception::class );
 		}
 
-		if( method_exists( $this, 'setExpectException') ) {
+		if( method_exists( $this, 'setExpectedException') ) {
 			$this->setExpectedException( Exception::class );
 		}
 
