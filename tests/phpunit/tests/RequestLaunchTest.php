@@ -13,8 +13,18 @@ class RequestLaunchTest extends Alexa_TestCase {
 		$this->request = $this->skill->input( $this->input[ 'LaunchRequest' ] )->request();
 	}
 
+	/**
+	 * @​expectedException
+	 */
 	public function testIntent(){
-		$this->expectException( Exception::class );
+		if( method_exists( $this, 'expectException') ) {
+			$this->expectException( Exception::class );
+		}
+
+		if( method_exists( $this, 'setExpectException') ) {
+			$this->setExpectException( Exception::class );
+		}
+
 		$this->request->intent();
 	}
 
