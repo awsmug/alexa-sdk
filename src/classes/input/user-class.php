@@ -1,6 +1,7 @@
 <?php
 
 namespace Alexa\Input;
+use Alexa\Exception;
 use Alexa\Id;
 use Alexa\Raw_Object;
 
@@ -82,9 +83,15 @@ class User {
 	 * @since 1.0.0
 	 *
 	 * @return Permissions $permissions
+	 *
+	 * @throws Exception
 	 */
 	public function permissions() {
 		if( empty( $this->permissions ) ) {
+			if( ! property_exists( $this->object, 'permissions' ) ) {
+				throw new Exception( 'There is no permission data in this request.' );
+			}
+
 			$this->permissions = new Permissions( $this->object->permissions );
 		}
 
