@@ -18,7 +18,7 @@ class Output_Speech implements Output_Object {
 	 *
 	 * @var string
 	 */
-	private $type;
+	private $type = 'PlainText';
 
 	/**
 	 * Text to speak
