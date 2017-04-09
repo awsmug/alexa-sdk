@@ -60,10 +60,12 @@ abstract class Skill {
 	 * @throws Exception
 	 */
 	public function input( $input = null ) {
-		if( empty( $input ) ){
-			$this->input = new Input_Stream( $this->receive() );
-		} else {
+		if( ! empty( $input ) ){
 			$this->input = new Input_Stream( $input );
+		}
+
+		if( empty( $this->input ) ) {
+			$this->input = new Input_Stream( $this->receive() );
 		}
 
 		if( ! $this->input->session()->application()->id_equals( $this->application_id ) ) {
