@@ -64,7 +64,11 @@ class Intent {
 	 */
 	public function get_slots() {
 		if( empty( $this->slots ) ) {
-			$this->slots = get_object_vars(  $this->object->slots );
+			$object_vars = get_object_vars(  $this->object->slots );
+
+			foreach( $object_vars AS $object_var ) {
+				$this->slots[ $object_var->name ] = $object_var->value;
+			}
 		}
 
 		return $this->slots;
@@ -78,7 +82,7 @@ class Intent {
 	 * @return array
 	 */
 	public function get_slot_names(){
-		return array_keys( $this->slots );
+		return array_keys( $this->get_slots() );
 	}
 
 	/**
@@ -91,9 +95,9 @@ class Intent {
 	 * @return bool|string
 	 */
 	public function get_slot_value( $name ) {
-		if( ! array_key_exists( $name, $this->slots ) ) {
+		if( ! array_key_exists( $name, $this->get_slots() ) ) {
 			return false;
 		}
-		return $this->slots[ $name ]->value;
+		return $this->slots[ $name ];
 	}
 }

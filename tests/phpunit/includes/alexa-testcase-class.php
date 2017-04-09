@@ -32,6 +32,11 @@ class Alexa_TestCase extends PHPUnit_Framework_TestCase {
 	var $timestamp;
 
 	/**
+	 * @var string Intent name
+	 */
+	var $intent_name;
+
+	/**
 	 * @var Alexa\Skill;
 	 */
 	var $skill;
@@ -52,6 +57,7 @@ class Alexa_TestCase extends PHPUnit_Framework_TestCase {
 
 		$this->locale = 'de-DE';
 		$this->timestamp = '2017-04-06T06:55:56Z';
+		$this->intent_name = 'MyIntent';
 
 		$this->skill = new Test_Skill_Class( $this->app_id );
 
@@ -94,7 +100,7 @@ class Alexa_TestCase extends PHPUnit_Framework_TestCase {
 			    "locale": "' . $this->locale . '",
 			    "timestamp": "' . $this->timestamp . '",
 			    "intent": {
-			      "name": "PlayPodcast",
+			      "name": "' . $this->intent_name . '",
 			      "slots": {
 			        "PodcastNumber": {
 			          "name": "PodcastNumber",
