@@ -17,14 +17,7 @@ class RequestLaunchTest extends Alexa_TestCase {
 	 * @​expectedException
 	 */
 	public function testIntent(){
-		if( method_exists( $this, 'expectException') ) {
-			$this->expectException( Exception::class );
-		}
-
-		if( method_exists( $this, 'setExpectedException') ) {
-			$this->setExpectedException( Exception::class );
-		}
-
+		$this->expectException( Exception::class );
 		$this->request->intent();
 	}
 
