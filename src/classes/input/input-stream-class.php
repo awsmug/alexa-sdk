@@ -2,6 +2,7 @@
 
 namespace Alexa\Input;
 use Alexa\Raw_Object;
+use Alexa\Exception;
 
 /**
  * Class Input_Stream
@@ -115,7 +116,7 @@ class Input_Stream {
 	public function context() {
 		if( empty( $this->context ) ) {
 			if( ! property_exists( $this->object, 'context' ) ) {
-				throw new Exception( 'There is no context in this request.' );
+				throw new Exception( 'There is no context data in this request.' );
 			}
 
 			$this->context = new Context( $this->object->context );
