@@ -1,6 +1,7 @@
 <?php
 
 namespace Alexa\Output;
+use Alexa\Output_Object;
 
 /**
  * Class Input_Stream
@@ -9,7 +10,7 @@ namespace Alexa\Output;
  *
  * @package Alexa
  */
-class Output_Stream {
+class Output_Stream implements Output_Object {
 	/**
 	 * Version
 	 *
@@ -42,8 +43,7 @@ class Output_Stream {
 	 *
 	 * @since 1.0.0
 	 */
-	public function __construct() {
-	}
+	public function __construct() {}
 
 	/**
 	 * Response object
@@ -96,6 +96,9 @@ class Output_Stream {
 
 	/**
 	 * Get all Session attributes
+	 *
+	 * @since 1.0.0
+	 *
 	 * @return array
 	 */
 	public function get_session_attributes() {
@@ -116,5 +119,35 @@ class Output_Stream {
 			return false;
 		}
 		return $this->session_attributes[ $name ];
+	}
+
+	/**
+	 * Get Session attribute Object for Response to Alexa
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return \stdClass
+	 */
+	private function get_session_attributes_obj() {
+		return $this->get_session_attributes();
+	}
+
+	/**
+	 * Get Output Object for Alexa
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return \StdClass
+	 */
+	public function get() {
+		$object = new \StdClass;
+
+		$object->version = $this->version;
+
+		$object->sessionAttributes = $this->get_session_attributes_obj();
+
+		$object->response = $this->response()->get();
+
+		return $object;
 	}
 }
