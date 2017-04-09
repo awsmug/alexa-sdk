@@ -56,6 +56,9 @@ abstract class Skill_Template extends Skill {
 	}
 
 	/**
+	 * Basic interacting
+	 *
+	 * @since 1.0.0
 	 *
 	 * @return \StdClass
 	 */
