@@ -53,13 +53,13 @@ class Autoloader {
 
 		// Getting Component directory
 		$component_part = '';
-		$i = 0;
+		$part_number = 0;
 		foreach( $parts AS $part ) {
 			if( 'Alexa' === $part ) {
 				continue;
 			}
 
-			if( $i < count( $parts ) ) {
+			if( $part_number < count( $parts ) ) {
 				$component_part .= '/' . str_replace( '_', '-', strtolower( $part ) );
 			}
 		}
