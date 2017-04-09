@@ -25,6 +25,9 @@ class UserTest extends Alexa_TestCase {
 		$this->assertFalse( $this->user->get_access_token() );
 	}
 
+	public function testHasPermissions() {
+		$this->assertFalse( $this->user->has_permissions() );
+	}
 
 	public function testPermissions() {
 		$this->expectException( Exception::class );
