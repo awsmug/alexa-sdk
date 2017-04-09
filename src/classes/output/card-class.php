@@ -2,6 +2,7 @@
 
 namespace Alexa\Output;
 use Alexa\Output_Object;
+use Alexa\Exception;
 
 /**
  * Class Output_Speech
@@ -18,7 +19,7 @@ class Card implements Output_Object {
 	 *
 	 * @var string
 	 */
-	private $type;
+	private $type = 'Standard';
 
 	/**
 	 * Title of card
@@ -84,9 +85,28 @@ class Card implements Output_Object {
 	 *
 	 * @param $content Content to speak by alexa
 	 */
-	public function set( $card_type, $title = false, $content = false, $text = false ) {
+	public function set( $card_type, $title = false, $content = false, $text = false, $small_image_url = false, $large_image_url = false ) {
 		$this->set_type( $card_type );
 
+		if( false !== $title ) {
+			$this->set_title( $title );
+		}
+
+		if( false !== $content ) {
+			$this->set_content( $content );
+		}
+
+		if( false !== $text ) {
+			$this->set_text( $text );
+		}
+
+		if( false !== $large_image_url ) {
+			$this->set_large_image( $large_image_url );
+		}
+
+		if( false !== $small_image_url ) {
+			$this->set_small_image( $small_image_url );
+		}
 	}
 
 	/**
@@ -94,7 +114,7 @@ class Card implements Output_Object {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param string $type
+	 * @param string $type Simple, Standard or LinkAccount
 	 *
 	 * @throws Exception
 	 */
@@ -107,7 +127,18 @@ class Card implements Output_Object {
 	}
 
 	/**
-	 * Setting text of Card
+	 * Get type card
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return string Simple, Standard or LinkAccount
+	 */
+	public function get_type() {
+		return $this->type;
+	}
+
+	/**
+	 * Setting title
 	 *
 	 * @since 1.0.0
 	 *
@@ -118,7 +149,21 @@ class Card implements Output_Object {
 	}
 
 	/**
-	 * Setting content of Card
+	 * Get title
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return bool|string $text False if empty or value which have been set
+	 */
+	public function get_title() {
+		if( empty( $this->title ) ) {
+			return false;
+		}
+		return $this->title;
+	}
+
+	/**
+	 * Set content
 	 *
 	 * @since 1.0.0
 	 *
@@ -129,7 +174,21 @@ class Card implements Output_Object {
 	}
 
 	/**
-	 * Setting text of Card
+	 * Get content
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return bool|string $text False if empty or value which have been set
+	 */
+	public function get_content() {
+		if( empty( $this->content ) ) {
+			return false;
+		}
+		return $this->content;
+	}
+
+	/**
+	 * Set text
 	 *
 	 * @since 1.0.0
 	 *
@@ -140,16 +199,84 @@ class Card implements Output_Object {
 	}
 
 	/**
-	 * Setting ssml text to speak by Alexa
+	 * Get text
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param $text
+	 * @return bool|string $text False if empty or value which have been set
 	 */
-	public function set_image( $small_image_url = false, $large_image_url = false ) {
-		if( ! empty( $small_image_url ) ) {
-			$this->small_image_url = $small_image_url;
+	public function get_text() {
+		if( empty( $this->text ) ) {
+			return false;
 		}
+		return $this->text;
+	}
+
+	/**
+	 * Setting images
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string $small_image_url
+	 * @param string $large_image_url
+	 */
+	public function set_images( $small_image_url = null, $large_image_url = null ) {
+		if( ! empty( $small_image_url ) ) {
+			$this->set_small_image( $small_image_url );
+		}
+		if( ! empty( $large_image_url ) ) {
+			$this->set_large_image( $large_image_url );
+		}
+	}
+
+	/**
+	 * Set small image URL
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string $url
+	 */
+	public function set_small_image( $url ) {
+		$this->small_image_url = $url;
+	}
+
+	/**
+	 * Get small image URL
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return bool|string
+	 */
+	public function get_small_image() {
+		if( empty( $this->small_image_url ) ) {
+			return false;
+		}
+		return $this->small_image_url;
+	}
+
+	/**
+	 * Set large image URL
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string $url
+	 */
+	public function set_large_image( $url ) {
+		$this->large_image_url = $url;
+	}
+
+	/**
+	 * Get large image URL
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return bool|string
+	 */
+	public function get_large_image() {
+		if( empty( $this->large_image_url ) ) {
+			return false;
+		}
+		return $this->large_image_url;
 	}
 
 	/**
