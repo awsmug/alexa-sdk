@@ -39,15 +39,6 @@ class Response implements Output_Object {
 	private $reprompt;
 
 	/**
-	 * Session attributes
-	 *
-	 * @since 1.0.0
-	 *
-	 * @var array
-	 */
-	private $session_attributes = array();
-
-	/**
 	 * Accessing Output Speech Object
 	 *
 	 * @since 1.0.0
@@ -87,18 +78,6 @@ class Response implements Output_Object {
 			$this->reprompt = new Reprompt();
 		}
 		return $this->reprompt;
-	}
-
-	/**
-	 * Adding a session attribute
-	 *
-	 * @since 1.0.0
-	 *
-	 * @param string $name
-	 * @param string $value
-	 */
-	public function session_attribute( $name, $value ) {
-		array_push( $this->session_attributes, array( $name, $value ) );
 	}
 
 	/**

@@ -130,30 +130,11 @@ abstract class Skill {
 				break;
 		}
 
-		if( $echo ) {
+		if ( $echo ) {
 			$this->send( $response );
 		}
 
 		return $response;
-	}
-
-	/**
-	 * Preparing data for output to Alexa
-	 *
-	 * @since 1.0.0
-	 *
-	 * @param $response
-	 *
-	 * @return mixed
-	 */
-	private function send( $response ) {
-		$response = json_encode( $response );
-		$size = strlen ( $response );
-
-		header( 'Content-Type: application/json' );
-		header( 'Content-length: ' . $size );
-
-		echo $response;
 	}
 
 	/**
@@ -210,5 +191,24 @@ abstract class Skill {
 		);
 
 		return $response;
+	}
+
+	/**
+	 * Preparing data for output to Alexa
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param $response
+	 *
+	 * @return mixed
+	 */
+	private function send( $response ) {
+		$response = json_encode( $response );
+		$size = strlen ( $response );
+
+		header( 'Content-Type: application/json' );
+		header( 'Content-length: ' . $size );
+
+		echo $response;
 	}
 }
