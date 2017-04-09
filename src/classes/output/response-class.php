@@ -39,6 +39,15 @@ class Response implements Output_Object {
 	private $reprompt;
 
 	/**
+	 * End session
+	 *
+	 * @since 1.0.0
+	 *
+	 * @var bool
+	 */
+	private $end_session = false;
+
+	/**
 	 * Accessing Output Speech Object
 	 *
 	 * @since 1.0.0
@@ -81,6 +90,17 @@ class Response implements Output_Object {
 	}
 
 	/**
+	 * Should end Session
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param bool $end
+	 */
+	public function end_session( $end = true ) {
+		$this->end_session = $end;
+	}
+
+	/**
 	 * Getting Object content
 	 *
 	 * @since 1.0.0
@@ -101,6 +121,8 @@ class Response implements Output_Object {
 		if( $this->reprompt()->has_values() ) {
 			$object->reprompt = $this->reprompt()->get();
 		}
+
+		$object->shouldEndSession = $this->end_session;
 
 		return $object;
 	}
