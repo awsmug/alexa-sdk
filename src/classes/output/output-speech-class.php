@@ -150,7 +150,7 @@ class Output_Speech implements Output_Object {
 	 * @return bool
 	 */
 	public function has_values() {
-		if( empty( $this->type ) && empty( $this->text ) && empty( $this->text ) ) {
+		if( empty( $this->ssml ) && empty( $this->text ) ) {
 			return false;
 		}
 

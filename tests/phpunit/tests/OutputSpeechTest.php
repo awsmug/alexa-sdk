@@ -46,4 +46,15 @@ class OutputSpeechTest extends Alexa_TestCase {
 		$this->assertEquals( 'SSML', $this->output_speech->get_type() );
 		$this->assertEquals( '<speak>This output speech uses SSML.</speak>', $this->output_speech->get_ssml() );
 	}
+
+	public function testHasValues() {
+		$this->assertFalse( $this->output_speech->has_values() );
+		$this->output_speech->set( 'PlainText', 'This is my text' );
+
+		$this->assertTrue( $this->output_speech->has_values() );
+	}
+
+	public function testGet(){
+		$this->assertInstanceOf( '\stdClass', $this->output_speech->get() );
+	}
 }
