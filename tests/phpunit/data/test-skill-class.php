@@ -8,8 +8,6 @@ use Alexa\Skill_Template;
 class Test_Skill extends Skill_Template {
 	public function __construct( $application_id ) {
 		parent::__construct( $application_id );
-
-		// $this->input();
 	}
 
 	public function intent_request() {
