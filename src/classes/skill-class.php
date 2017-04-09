@@ -2,6 +2,7 @@
 
 namespace Alexa;
 use Alexa\Input\Input_Stream;
+use Alexa\Output\Output_Stream;
 
 /**
  * Class Skill
@@ -12,13 +13,6 @@ use Alexa\Input\Input_Stream;
  */
 abstract class Skill {
 	/**
-	 * Logging functionality
-	 *
-	 * @since 1.0.0
-	 */
-	use Logger;
-
-	/**
 	 * Application ID
 	 *
 	 * @var string
@@ -26,40 +20,22 @@ abstract class Skill {
 	private $application_id;
 
 	/**
-	 * Rare input data from Alexa as JSON String
+	 * Raw input data from Alexa as JSON String
 	 *
 	 * @since 1.0.0
 	 *
-	 * @var string
+	 * @var Input\Input_Stream
 	 */
 	private $input;
 
 	/**
-	 * Text which Alexa says if the skill starts
+	 * Output data for Alexa
 	 *
 	 * @since 1.0.0
 	 *
-	 * @var string
+	 * @var Output\Output_Stream
 	 */
-	protected $text_launch = 'Hello! I am an Alexa Skill.';
-
-	/**
-	 * Text which Alexa says if the skill ends
-	 *
-	 * @since 1.0.0
-	 *
-	 * @var string
-	 */
-	protected $text_end = 'Good bye!';
-
-	/**
-	 * Text which Alexa says if she did not understood
-	 *
-	 * @since 1.0.0
-	 *
-	 * @var string
-	 */
-	protected $text_dont_understood = 'I did not understood you.';
+	private $output;
 
 	/**
 	 * Skill constructor.
@@ -73,26 +49,18 @@ abstract class Skill {
 	}
 
 	/**
-	 * Running the Skill
-	 *
-	 * @since 1.0.0
-	 */
-	public function run() {
-		$this->input();
-		$this->output();
-	}
-
-	/**
 	 * Getting Data from Alexa
 	 *
 	 * @since 1.0.0
+	 *
+	 * @param \stdClass $input
 	 *
 	 * @return Input_Stream
 	 *
 	 * @throws Exception
 	 */
-	public function input( $input = false ) {
-		if( ! $input ) {
+	public function input( $input = null ) {
+		if( empty( $input ) ){
 			$this->input = new Input_Stream( $this->receive() );
 		} else {
 			$this->input = new Input_Stream( $input );
@@ -110,31 +78,14 @@ abstract class Skill {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @var bool $echo True if data should be outputted direct
-	 *
-	 * @return array $response
+	 * @return Output_Stream $output
 	 */
-	public function output( $echo = true ) {
-		switch ( $this->input()->request()->get_type() ) {
-			case "LaunchRequest":
-				$response = $this->response_launch();
-				break;
-			case "SessionEndedRequest":
-				$response = $this->response_end();
-				break;
-			case "IntentRequest":
-				$response = $this->interact( $this->input()->request()->intent() );
-				break;
-			default:
-				$response = $this->response_dont_understood();
-				break;
+	public function output() {
+		if( empty( $this->output ) ) {
+			$this->output = new Output_Stream();
 		}
 
-		if ( $echo ) {
-			$this->send( $response );
-		}
-
-		return $response;
+		return $this->output;
 	}
 
 	/**
@@ -159,48 +110,11 @@ abstract class Skill {
 	}
 
 	/**
-	 * Response
-	 *
-	 * @return array
-	 */
-	public function response_launch() {
-		return $this->response_speak( $this->text_launch );
-	}
-
-	public function response_end() {
-		return $this->response_speak( $this->text_end );
-	}
-
-	public function response_dont_understood() {
-		return $this->response_speak( $this->text_dont_understood );
-	}
-
-	abstract protected function interact( $intent );
-
-	public function response_speak( $text, $session_attributes = array(), $should_end_session = true ) {
-		$response = array(
-			'version'   => '1.0',
-			'sessionAttributes' => $session_attributes,
-			'response' => array(
-				'outputSpeech' => array(
-					'type'  => 'PlainText',
-					'text'  => $text
-				),
-				'shouldEndSession' => $should_end_session
-			)
-		);
-
-		return $response;
-	}
-
-	/**
 	 * Preparing data for output to Alexa
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param $response
-	 *
-	 * @return mixed
+	 * @param \stdClass $response
 	 */
 	private function send( $response ) {
 		$response = json_encode( $response );

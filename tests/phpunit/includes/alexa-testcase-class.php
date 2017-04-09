@@ -59,7 +59,7 @@ class Alexa_TestCase extends PHPUnit_Framework_TestCase {
 		$this->timestamp = '2017-04-06T06:55:56Z';
 		$this->intent_name = 'MyIntent';
 
-		$this->skill = new Test_Skill_Class( $this->app_id );
+		$this->skill = new Test_Skill( $this->app_id );
 
 		$this->input = array(
 			'LaunchRequest' => json_decode( '{

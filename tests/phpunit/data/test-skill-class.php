@@ -3,14 +3,16 @@
  * Simple Skill Class for testing
  */
 
-use Alexa\Skill;
+use Alexa\Skill_Template;
 
-class Test_Skill_Class extends Skill {
+class Test_Skill extends Skill_Template {
 	public function __construct( $application_id ) {
 		parent::__construct( $application_id );
+
+		// $this->input();
 	}
 
-	protected function interact( $intent ) {
-		return $this->response_speak( 'An interaction' );
+	public function intent_request() {
+		return $this->output()->response()->output_speech()->set_text( 'This is a test Skill.' );
 	}
 }
