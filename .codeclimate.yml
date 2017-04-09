@@ -6,3 +6,5 @@ engines:
       checks:
          Controversial/CamelCaseClassName:
             enabled: false
+         Controversial/CamelCaseParameterName:
+            enabled: false
