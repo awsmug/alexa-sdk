@@ -1,7 +1,8 @@
 languages:
    PHP: true
 engines:
-   enabled: true
-   checks:
-   Controversial/CamelCaseClassName:
-      enabled: false
+   phpmd:
+      enabled: true
+      checks:
+         Controversial/CamelCaseClassName:
+            enabled: false
