@@ -23,13 +23,13 @@ class Audio_Player{
 	protected $token;
 
 	/**
-	 * Offset in miliseconds
+	 * Offset in milliseconds
 	 *
 	 * @since 1.0.0
 	 *
 	 * @var int
 	 */
-	protected $offset_in_miliseconds;
+	protected $offset;
 
 	/**
 	 * Player activity
@@ -51,7 +51,7 @@ class Audio_Player{
 		$this->object = $object;
 
 		$this->token = $object->token;
-		$this->offset_in_miliseconds = $object->offsetInMilliseconds;
+		$this->offset = $object->offsetInMilliseconds;
 		$this->player_activity = $object->playerActivity;
 	}
 
@@ -67,14 +67,14 @@ class Audio_Player{
 	}
 
 	/**
-	 * Get Offset in Miliseconds
+	 * Get Offset in milliseconds
 	 *
 	 * @since 1.0.0
 	 *
 	 * @return int
 	 */
 	public function get_offset() {
-		return $this->offset_in_miliseconds;
+		return $this->offset;
 	}
 
 	/**
