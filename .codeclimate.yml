@@ -8,3 +8,5 @@ engines:
             enabled: false
          Controversial/CamelCaseParameterName:
             enabled: false
+         Controversial/CamelCasePropertyName:
+            enabled: false
