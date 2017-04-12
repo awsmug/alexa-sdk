@@ -304,12 +304,16 @@ class Card implements Output_Object {
 	public function get() {
 		$object = new \StdClass;
 
+		$object->type = $this->type;
+
 		if( ! empty( $this->title ) ) {
 			$object->title = $this->title;
 		}
+
 		if( ! empty( $this->content ) ) {
 			$object->content = $this->content;
 		}
+
 		if( ! empty( $this->text ) ) {
 			$object->text = $this->text;
 		}
