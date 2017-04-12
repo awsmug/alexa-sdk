@@ -82,6 +82,17 @@ abstract class Skill_Template extends Skill {
 	}
 
 	/**
+	 * Doing a simple run of a Skill
+	 *
+	 * @since 1.0.0
+	 */
+	public function run(){
+		$this->input();
+		$this->interact();
+		echo $this->output()->get_json();
+	}
+
+	/**
 	 * Intent Request
 	 *
 	 * @since 1.0.0
