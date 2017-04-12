@@ -129,7 +129,13 @@ class Output_Stream implements Output_Object {
 	 * @return \stdClass
 	 */
 	private function get_session_attributes_obj() {
-		return $this->get_session_attributes();
+		$session_attributes = new \stdClass();
+
+		foreach( $this->get_session_attributes() AS $key => $value ) {
+			$session_attributes->$key = $value;
+		}
+
+		return $session_attributes;
 	}
 
 	/**
@@ -144,10 +150,21 @@ class Output_Stream implements Output_Object {
 
 		$object->version = $this->version;
 
-		$object->sessionAttributes = $this->get_session_attributes_obj();
-
 		$object->response = $this->response()->get();
 
+		$object->sessionAttributes = $this->get_session_attributes_obj();
+
 		return $object;
+	}
+
+	/**
+	 * Getting Output Object for alexa as json string
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return string
+	 */
+	public function get_json() {
+		return json_encode( $this->get() );
 	}
 }
