@@ -10,6 +10,7 @@
   ],
   "require-dev": {
     "codeclimate/php-test-reporter": "dev-master",
-    "phpunit/phpunit": "^6.0"
+    "phpunit/php-code-coverage": "^2",
+    "phpunit/phpunit": "4.5"
   }
 }
