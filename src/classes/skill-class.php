@@ -118,7 +118,7 @@ abstract class Skill {
 	 *
 	 * @param \stdClass $response
 	 */
-	private function send( $response ) {
+	public function send( $response ) {
 		$response = json_encode( $response );
 		$size = strlen ( $response );
 
