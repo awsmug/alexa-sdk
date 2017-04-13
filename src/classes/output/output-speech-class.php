@@ -153,11 +153,7 @@ class Output_Speech implements Output_Object {
 
 		$object->type = $this->type;
 
-		if( 'PlainText' === $this->type ) {
-			$object->text = $this->text;
-		} else {
-			$object->ssml = $this->ssml;
-		}
+		'PlainText' === $this->type ? $object->text = $this->text : $object->ssml = $this->ssml;
 
 		return $object;
 	}
