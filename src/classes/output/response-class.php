@@ -48,6 +48,15 @@ class Response implements Output_Object {
 	private $end_session = false;
 
 	/**
+	 * Directives
+	 *
+	 * @since 1.0.0
+	 *
+	 * @var Directive[]
+	 */
+	private $directives = array();
+
+	/**
 	 * Accessing Output Speech Object
 	 *
 	 * @since 1.0.0
@@ -101,6 +110,28 @@ class Response implements Output_Object {
 	}
 
 	/**
+	 * Adding a Directive object (Audio etc.)
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param Directive $directive
+	 */
+	public function add_directive( $directive ) {
+		$this->directives[] = $directive;
+	}
+
+	/**
+	 * Returns all directives
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return Directive[]
+	 */
+	public function get_directives() {
+		return $this->directives;
+	}
+
+	/**
 	 * Getting Object content
 	 *
 	 * @since 1.0.0
@@ -120,6 +151,14 @@ class Response implements Output_Object {
 
 		if( $this->reprompt()->has_values() ) {
 			$object->reprompt = $this->reprompt()->get();
+		}
+
+		if( count( $this->get_directives() ) > 0 ) {
+			$directives = $this->get_directives();
+
+			foreach( $directives AS $directive ) {
+				$object->directives[] = $directive->get();
+			}
 		}
 
 		$object->shouldEndSession = $this->end_session;
