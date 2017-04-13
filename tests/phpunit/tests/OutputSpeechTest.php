@@ -13,43 +13,27 @@ class OutputSpeechTest extends Alexa_TestCase {
 		$this->output_speech = $this->skill->output()->response()->output_speech();
 	}
 
-	public function testGetType(){
-		$this->assertEquals( 'PlainText', $this->output_speech->get_type());
-
-		$this->output_speech->set_type( 'SSML' );
-		$this->assertEquals( 'SSML', $this->output_speech->get_type());
-
-		$this->expectException( Exception::class );
-		$this->output_speech->set_type('Not_Possible_Value');
-	}
-
-	public function testGetText(){
+	public function testSetText(){
 		$this->assertFalse( $this->output_speech->get_text() );
 
 		$this->output_speech->set_text( 'This is my text' );
 		$this->assertEquals( 'This is my text', $this->output_speech->get_text() );
+		$this->assertEquals( 'This is my text', $this->output_speech->get()->text );
+		$this->assertEquals( 'PlainText', $this->output_speech->get()->type );
 	}
 
-	public function testGetSsml(){
+	public function testSetSsml(){
 		$this->assertFalse( $this->output_speech->get_ssml() );
 
 		$this->output_speech->set_ssml( '<speak>This output speech uses SSML.</speak>' );
 		$this->assertEquals( '<speak>This output speech uses SSML.</speak>', $this->output_speech->get_ssml() );
-	}
-
-	public function testSet() {
-		$this->output_speech->set( 'PlainText', 'This is my text' );
-		$this->assertEquals( 'PlainText', $this->output_speech->get_type() );
-		$this->assertEquals( 'This is my text', $this->output_speech->get_text() );
-
-		$this->output_speech->set( 'SSML', '<speak>This output speech uses SSML.</speak>' );
-		$this->assertEquals( 'SSML', $this->output_speech->get_type() );
-		$this->assertEquals( '<speak>This output speech uses SSML.</speak>', $this->output_speech->get_ssml() );
+		$this->assertEquals( '<speak>This output speech uses SSML.</speak>', $this->output_speech->get()->ssml );
+		$this->assertEquals( 'SSML', $this->output_speech->get()->type );
 	}
 
 	public function testHasValues() {
 		$this->assertFalse( $this->output_speech->has_values() );
-		$this->output_speech->set( 'PlainText', 'This is my text' );
+		$this->output_speech->set_text( 'This is my Text' );
 
 		$this->assertTrue( $this->output_speech->has_values() );
 	}

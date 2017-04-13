@@ -47,24 +47,6 @@ class Output_Speech implements Output_Object {
 	public function __construct() {}
 
 	/**
-	 * Setting Output speech
-	 *
-	 * @since 1.0.0
-	 *
-	 * @param string $speech_type Value 'PlainText' or 'SSML'
-	 * @param $content string Content to speak by alexa
-	 */
-	public function set( $speech_type, $content ) {
-		$this->set_type( $speech_type );
-
-		if( 'PlainText' === $speech_type ) {
-			$this->set_text( $content );
-		} else {
-			$this->set_ssml( $content );
-		}
-	}
-
-	/**
 	 * Speech type
 	 *
 	 * @since 1.0.0
@@ -73,7 +55,7 @@ class Output_Speech implements Output_Object {
 	 *
 	 * @throws Exception
 	 */
-	public function set_type( $type ) {
+	private function set_type( $type ) {
 		if( 'PlainText' !== $type && 'SSML' !== $type ) {
 			throw new Exception( sprintf( 'Speech Type %s does not exist', $type ) );
 		}
@@ -100,6 +82,7 @@ class Output_Speech implements Output_Object {
 	 * @param $text
 	 */
 	public function set_text( $text ) {
+		$this->set_type( 'PlainText' );
 		$this->text = $text;
 	}
 
@@ -125,6 +108,7 @@ class Output_Speech implements Output_Object {
 	 * @param $text
 	 */
 	public function set_ssml( $ssml ) {
+		$this->set_type( 'SSML' );
 		$this->ssml = $ssml;
 	}
 
@@ -172,7 +156,7 @@ class Output_Speech implements Output_Object {
 		if( 'PlainText' === $this->type ) {
 			$object->text = $this->text;
 		} else {
-			$object->ssml = $this->text;
+			$object->ssml = $this->ssml;
 		}
 
 		return $object;

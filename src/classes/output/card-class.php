@@ -74,42 +74,6 @@ class Card implements Output_Object {
 	public function __construct() {}
 
 	/**
-	 * Setting up Card
-	 *
-	 * @since 1.0.0
-	 *
-	 * @param string $card_type Types 'Simple', 'Standard' or 'LinkAccount'
-	 * @param string $title Title of Card
-	 * @param string $content Content of Card
-	 * @param string $text Text of Card
-	 *
-	 * @param $content Content to speak by alexa
-	 */
-	public function set( $card_type, $title = false, $content = false, $text = false, $small_image_url = false, $large_image_url = false ) {
-		$this->set_type( $card_type );
-
-		if( false !== $title ) {
-			$this->set_title( $title );
-		}
-
-		if( false !== $content ) {
-			$this->set_content( $content );
-		}
-
-		if( false !== $text ) {
-			$this->set_text( $text );
-		}
-
-		if( false !== $large_image_url ) {
-			$this->set_large_image( $large_image_url );
-		}
-
-		if( false !== $small_image_url ) {
-			$this->set_small_image( $small_image_url );
-		}
-	}
-
-	/**
 	 * Speech type
 	 *
 	 * @since 1.0.0
@@ -318,16 +282,14 @@ class Card implements Output_Object {
 			$object->text = $this->text;
 		}
 
-		if( ! empty( $this->small_image_url ) && ! empty( $this->large_image_url ) ) {
-			$object->image = new \StdClass;
+		if( ! empty( $this->small_image_url ) ) {
+			if( ! property_exists( $object, 'image' )  ) $object->image = new \stdClass();
+			$object->image->smallImageUrl = $this->small_image_url;
+		}
 
-			if( ! empty( $this->small_image_url ) ) {
-				$object->image->smallImageUrl = $this->small_image_url;
-			}
-
-			if( ! empty( $this->large_image_url ) ) {
-				$object->image->largeImageUrl = $this->large_image_url;
-			}
+		if( ! empty( $this->large_image_url ) ) {
+			if( ! property_exists( $object, 'image' )  ) $object->image = new \stdClass();
+			$object->image->largeImageUrl = $this->large_image_url;
 		}
 
 		return $object;

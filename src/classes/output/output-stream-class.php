@@ -91,7 +91,7 @@ class Output_Stream implements Output_Object {
 	 * @param string $value
 	 */
 	public function add_session_attribute( $name, $value ) {
-		array_push( $this->session_attributes, array( $name, $value ) );
+		$this->session_attributes[ $name ] = $value;
 	}
 
 	/**

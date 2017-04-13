@@ -27,5 +27,9 @@ class ResponseTest extends Alexa_TestCase {
 
 	public function testGet(){
 		$this->assertInstanceOf( '\stdClass', $this->response->get() );
+		$this->assertFalse( $this->response->get()->shouldEndSession );
+
+		$this->response->end_session();
+		$this->assertTrue( $this->response->get()->shouldEndSession );
 	}
 }
