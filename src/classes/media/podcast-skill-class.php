@@ -39,14 +39,13 @@ class Podcast_Skill extends Player_Skill {
 		foreach ( $dom->getElementsByTagName( 'item' ) as $node ) {
 			$url  = $node->getElementsByTagName( 'enclosure' )->item( 0 )->getAttribute( 'url' );
 			$item = array(
-
 				'title' => $node->getElementsByTagName( 'title' )->item( 0 )->nodeValue,
 				/*
 				'link' => $node->getElementsByTagName('link')->item(0)->nodeValue,
 				'guid' => $node->getElementsByTagName('guid')->item(0)->nodeValue,
 				'enclosure' => $node->getElementsByTagName('enclosure')->item(0)->nodeValue,
-				*/
 				'image' => $node->getElementsByTagName( 'image' )->item(0)->getAttribute( 'href' ),
+				*/
 				'url'   => $url
 			);
 			array_push( $media_files, $item );

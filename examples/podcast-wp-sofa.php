@@ -8,7 +8,7 @@ class WP_Sofa_Podcast extends Podcast_Skill {
 
 	public function __construct( $application_id ) {
 		$this->text_launch         = 'Cool! Datt WP Sofa iss immer noch datt schönste! Welche Folge willste hören?';
-		$this->text_end            = 'Ach mensch hier iss doch so jemütlich! Naja, dann geh doch!';
+		$this->text_end            = 'Ach mensch hier iss doch so jemütlich! Na dann geh doch!';
 		$this->text_failed         = 'Man man man, Du musst schon deutlicher sprechen';
 		$this->text_start          = '%s';
 		$this->text_item_not_found = 'Ich kann die Folge nicht finden. Suche Dir ne Folge zwischen %d und %d aus!';
@@ -19,11 +19,11 @@ class WP_Sofa_Podcast extends Podcast_Skill {
 	}
 }
 
-$wp_sofa = new WP_Sofa_Podcast( 'amzn1.ask.skill.fa771ea4-38ac-4030-81d7-77c5c61d4f76' );
+$podcast = new WP_Sofa_Podcast( 'amzn1.ask.skill.fa771ea4-38ac-4030-81d7-77c5c61d4f76' );
 
 try {
-	$wp_sofa->run();
+	$podcast->run();
 } catch ( Exception $exception ) {
-	$wp_sofa->log( $exception->getMessage() );
+	$podcast->log( $exception->getMessage() );
 	echo $exception->getMessage();
 }
