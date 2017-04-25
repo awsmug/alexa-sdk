@@ -12,12 +12,6 @@ use Alexa\Exception;
 class Simple_Skill extends Skill_Template {
 
 	public function intent_request() {
-
-		if( $this->input()->request()->has_intent() ) {
-			$this->log( $this->input()->request()->intent()->get_slots() );
-			$this->log( $this->input()->request()->intent()->get_slot_value( 'PodcastNumber' ) );
-		}
-
 		/**
 		 * Put in your answer stuff here!
 		 */

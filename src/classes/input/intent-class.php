@@ -29,7 +29,7 @@ class Intent {
 	 *
 	 * @var array $slots
 	 */
-	private $slots;
+	private $slots = array();
 
 	/**
 	 * Intent constructor.

@@ -144,7 +144,7 @@ class Stream implements Output_Object {
 	 * @return bool
 	 */
 	public function has_values() {
-		if( empty( $this->stream )) {
+		if( empty( $this->url )) {
 			return false;
 		}
 
@@ -167,7 +167,9 @@ class Stream implements Output_Object {
 
 		if( ! empty( $this->token ) ) {
 			$object->token = $this->token;
-		}
+		} else {
+            $object->token = basename( $this->url );
+        }
 
 		if( ! empty( $this->previous_token ) ) {
 			$object->expectedPreviousToken = $this->previous_token;

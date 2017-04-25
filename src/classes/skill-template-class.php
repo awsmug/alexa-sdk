@@ -11,13 +11,6 @@ namespace Alexa;
  */
 abstract class Skill_Template extends Skill {
 	/**
-	 * Logging functionality
-	 *
-	 * @since 1.0.0
-	 */
-	use Logger;
-
-	/**
 	 * Text which Alexa says if the skill starts
 	 *
 	 * @since 1.0.0

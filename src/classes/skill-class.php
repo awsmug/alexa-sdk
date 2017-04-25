@@ -12,6 +12,13 @@ use Alexa\Output\Output_Stream;
  * @package Alexa
  */
 abstract class Skill {
+    /**
+     * Logging functionality
+     *
+     * @since 1.0.0
+     */
+    use Logger;
+
 	/**
 	 * Application ID
 	 *
@@ -107,6 +114,8 @@ abstract class Skill {
 		}
 
 		$this->input = json_decode( $input );
+
+        $this->log( $this->input );
 
 		return $this->input;
 	}
