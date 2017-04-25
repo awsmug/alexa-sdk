@@ -72,7 +72,7 @@ class Player_Skill extends Skill_Template {
 		$this->output()->response()->add_directive( $directive );
 
 		$this->output()->response()->card()->set_text( $media_file['title'] );
-		if( ! empty( $media_file['image'] ) ) {
+		if ( ! empty( $media_file['image'] ) ) {
 			$this->output()->response()->card()->set_small_image( $media_file['image'] );
 		}
 
@@ -86,7 +86,7 @@ class Player_Skill extends Skill_Template {
 		$this->output()->response()->add_directive( $directive );
 
 		$this->output()->response()->card()->set_text( $media_file['title'] );
-		if( ! empty( $media_file['image'] ) ) {
+		if ( ! empty( $media_file['image'] ) ) {
 			$this->output()->response()->card()->set_small_image( $media_file['image'] );
 		}
 
