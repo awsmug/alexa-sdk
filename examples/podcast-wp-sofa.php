@@ -1,5 +1,6 @@
 <?php
 
+require_once dirname( dirname( __FILE__ ) ) . '/alexa-config.php';
 require_once dirname( dirname( __FILE__ ) ) . '/src/alexa-sdk.php';
 
 use Alexa\Media\Podcast_Skill;
@@ -19,7 +20,7 @@ class WP_Sofa_Podcast extends Podcast_Skill {
 	}
 }
 
-$podcast = new WP_Sofa_Podcast( 'amzn1.ask.skill.fa771ea4-38ac-4030-81d7-77c5c61d4f76' );
+$podcast = new WP_Sofa_Podcast( $wp_sofa_app_id );
 
 try {
 	$podcast->run();

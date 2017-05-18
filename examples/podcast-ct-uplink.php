@@ -1,5 +1,6 @@
 <?php
 
+require_once dirname( dirname( __FILE__ ) ) . '/alexa-config.php';
 require_once dirname( dirname( __FILE__ ) ) . '/src/alexa-sdk.php';
 
 use Alexa\Media\Podcast_Skill;
@@ -19,7 +20,7 @@ class CT_Uplink_Podcast extends Podcast_Skill {
 	}
 }
 
-$podcast = new CT_Uplink_Podcast( 'amzn1.ask.skill.83b2acd2-da0f-468c-ad4e-22c24e86759c' );
+$podcast = new CT_Uplink_Podcast( $ct_uplink_app_id );
 
 try {
 	$podcast->run();

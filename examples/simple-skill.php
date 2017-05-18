@@ -1,9 +1,6 @@
 <?php
 
-ini_set('error_reporting', E_ALL);
-ini_set('display_errors', '1');
-ini_set('display_startup_errors', '1');
-
+require_once dirname( dirname( __FILE__ ) ) . '/alexa-config.php';
 require_once dirname( dirname( __FILE__ ) ) . '/src/alexa-sdk.php';
 
 use Alexa\Skill_Template;
@@ -24,7 +21,7 @@ class Simple_Skill extends Skill_Template {
 	}
 }
 
-$simple_skill = new Simple_Skill( 'amzn1.ask.skill.f66f9cb9-c632-42bb-be50-210f1d6164b6' );
+$simple_skill = new Simple_Skill( $simple_skill_app_id );
 
 try{
 	$simple_skill->run();
