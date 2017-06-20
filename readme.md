@@ -56,3 +56,9 @@ try{
 	echo $exception->getMessage();
 }
 ```
+
+## Using Autocomplete
+
+The SDK is programmed for autocompleting functions. If you use an IDE like *PHP Storm*, 
+the functions will autocomplete by itself and you can discover the functions by the autocomplete
+functionality of the IDE.
