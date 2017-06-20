@@ -1,5 +1,8 @@
 {
   "name": "awsmug/alexa-php-sdk",
+  "type": "library",
+  "description": "Amazon Echo (Alexa) PHP SDK",
+  "license": "GPL-3.0",
   "authors": [
     {
       "name": "Sven Wagener",
