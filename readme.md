@@ -47,7 +47,7 @@ class Simple_Skill extends Skill_Template {
 	}
 }
 
-$simple_skill = new Simple_Skill( $simple_skill_app_id );
+$simple_skill = new Simple_Skill( 'YOUR-SKILL-ID );
 
 try{
 	$simple_skill->run();
