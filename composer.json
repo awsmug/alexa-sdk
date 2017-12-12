@@ -12,8 +12,7 @@
     }
   ],
   "require-dev": {
-    "codeclimate/php-test-reporter": "dev-master",
-    "phpunit/php-code-coverage": "^2",
-    "phpunit/phpunit": "4.5"
+    "phpunit/phpunit": "^6.5",
+    "codeclimate/php-test-reporter": "^0.4.4"
   }
 }
