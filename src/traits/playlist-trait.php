@@ -16,7 +16,7 @@ trait Playlist
     public function playlist_add( $url, $title, $image = false, $token = false ) {
         $item = array(
             'title' => $title,
-            'image' => ! $token ? null: $image,
+            'image' => ! $image ? null: $image,
             'token' => ! $token ? md5( $url ): $token,
             'url' => $url
         );
