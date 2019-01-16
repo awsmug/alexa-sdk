@@ -56,3 +56,4 @@ vendor
 ############
 
 alexa-config.php
+/tests/codeCoverage
